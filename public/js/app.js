@@ -31,6 +31,18 @@ function notify(title, message = '', type = 'ok') {
   setTimeout(close, 4500);
 }
 
+// Header: highlight the nav link for the page you are on (works even if every page has the same header)
+function setActiveNav() {
+  const here = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('nav a').forEach((link) => {
+    link.classList.toggle('active', link.getAttribute('href') === here);
+  });
+  // The restaurants page already has its own Add button, so hide the header one there
+  if (here === 'restaurants.html') {
+    document.querySelectorAll('.site-header .btn').forEach((btn) => btn.remove());
+  }
+}
+
 // Header: live database status pill (uses /api/stats). Shows red if the server or database is unreachable.
 async function loadDbStatus() {
   const pill = $('#dbStatus');
@@ -464,6 +476,7 @@ function initContactPage() {
 }
 
 // Run what this page needs
+setActiveNav();
 loadDbStatus();
 if ($('#statTotal')) loadStats();
 if ($('#topRated')) loadTopRated();
