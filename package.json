@@ -1,0 +1,16 @@
+{
+  "name": "kaininventory",
+  "version": "1.0.0",
+  "description": "Kainventory / Byte & Bite - A Restaurant Management System (MongoDB + Express)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "express": "^4.22.3",
+    "mongodb": "^6.21.0"
+  }
+}

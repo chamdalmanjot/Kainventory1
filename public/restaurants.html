@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Restaurants | Kainventory</title>
+  <link rel="icon" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+ <header class="site-header">
+  <a class="brand" href="index.html" aria-label="Kainventory home">
+    <img class="brand-logo" src="images/logo.png" alt="Kainventory Logo">
+    <span class="brand-name">Byte &amp; Bite</span>
+  </a>
+
+  <div class="header-status" id="dbStatus" aria-live="polite">
+    <span class="dot"></span>
+    <span id="dbStatusText">Connecting…</span>
+  </div>
+
+  <nav aria-label="Main">
+    <a href="index.html" class="active">Home</a>
+    <a href="restaurants.html">Restaurants</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <a class="btn" href="restaurants.html#add">+ Add restaurant</a>
+</header>
+
+  <main class="page">
+    <!-- Title and add button -->
+    <div class="page-head">
+      <div>
+        <h1>Restaurants</h1>
+        <p class="muted" id="count">Loading...</p>
+      </div>
+      <button class="btn" id="addBtn" type="button">+ Add restaurant</button>
+    </div>
+
+    <!-- Search -->
+    <div class="toolbar">
+      <div class="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="search" type="search" placeholder="Search by name, cuisine, place or ID" aria-label="Search restaurants" autocomplete="off">
+        <div class="chips" id="cuisineChips" aria-label="Filter by cuisine"></div>
+      </div>
+    </div>
+
+    <!-- Restaurant table (filled by app.js) -->
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th><th>Restaurant</th><th>Cuisine</th><th>Place</th><th>Rating</th><th>Contact</th><th class="right">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pager">
+      <button class="btn ghost" id="prev" type="button">Previous</button>
+      <span id="pageInfo" class="muted"></span>
+      <button class="btn ghost" id="next" type="button">Next</button>
+    </div>
+  </main>
+
+  <!-- Add / edit form -->
+  <dialog id="formDialog">
+    <form id="restaurantForm" method="dialog" novalidate>
+      <h2 id="formTitle">Add restaurant</h2>
+
+      <label>Name
+        <input name="name" required maxlength="100" autocomplete="off">
+      </label>
+      <label>Cuisine
+        <input name="cuisine" required maxlength="60" placeholder="Filipino, Japanese, Italian..." autocomplete="off">
+      </label>
+      <label>Address
+        <input name="address" maxlength="200" autocomplete="off">
+      </label>
+      <div class="two-col">
+        <label>Rating (0 to 5)
+          <input name="rating" type="number" min="0" max="5" step="0.1" inputmode="decimal">
+        </label>
+        <label>Contact number
+          <input name="contact" maxlength="30" placeholder="09171234567" inputmode="tel" autocomplete="off">
+        </label>
+      </div>
+
+      <p id="formError" class="form-error" role="alert"></p>
+
+      <div class="form-actions">
+        <button type="button" class="btn ghost" id="cancelBtn">Cancel</button>
+        <button type="submit" class="btn" id="saveBtn">Save restaurant</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Delete confirmation -->
+  <dialog id="confirmDialog">
+    <div class="confirm">
+      <h2>Delete restaurant?</h2>
+      <p id="confirmText">This cannot be undone.</p>
+      <div class="form-actions">
+        <button type="button" class="btn ghost" id="confirmNo">Keep it</button>
+        <button type="button" class="btn danger" id="confirmYes">Delete</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Notifications -->
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <footer class="site-footer">6ADDBASE Final Project &middot; WD-303 &middot; Holy Angel University</footer>
+  <script src="js/cuisine-flags.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

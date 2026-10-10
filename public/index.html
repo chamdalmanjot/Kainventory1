@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kainventory | Professional Restaurant Management</title>
+  <link rel="icon" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="Kainventory home">
+    <img class="brand-logo" src="images/logo.png" alt="Kainventory Logo">
+    <span class="brand-name">Byte &amp; Bite</span>
+  </a>
+
+  <div class="header-status" id="dbStatus" aria-live="polite">
+    <span class="dot"></span>
+    <span id="dbStatusText">Connecting…</span>
+  </div>
+
+  <nav aria-label="Main">
+    <a href="index.html" class="active">Home</a>
+    <a href="restaurants.html">Restaurants</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <a class="btn" href="restaurants.html#add">+ Add restaurant</a>
+</header>
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <h1>Every restaurant,<br>one unified registry.</h1>
+          <p class="lead">Kainventory streamlines restaurant listings, ratings, and contact directories in real time. Effortlessly add new dining establishments, update venue details, or manage active records with complete precision.</p>
+          <a class="btn accent" href="restaurants.html">Access restaurant directory</a>
+        </div>
+
+        <ul class="menu-board" aria-label="System capabilities">
+          <li><span class="item">Browse Directory</span><span class="dots"></span><span class="note">search &amp; filter</span></li>
+          <li><span class="item">Add Establishment</span><span class="dots"></span><span class="note">register venue</span></li>
+          <li><span class="item">Modify Records</span><span class="dots"></span><span class="note">update info</span></li>
+          <li><span class="item">Manage Listings</span><span class="dots"></span><span class="note">archive venue</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Live stats from the server -->
+    <section class="stats" aria-label="Directory statistics">
+      <div class="stat"><strong id="statTotal">-</strong><span>active restaurants</span></div>
+      <div class="stat"><strong id="statAvg">-</strong><span>average rating score</span></div>
+      <div class="stat"><strong id="statCuisines">-</strong><span>cuisine categories</span></div>
+    </section>
+    <section class="insights">
+  <div class="insight">
+    <h2>Recently added</h2>
+    <ul class="recent-list" id="recentList"></ul>
+  </div>
+  <div class="insight">
+    <h2>Average rating by place</h2>
+    <ul class="city-list" id="cityStats"></ul>
+  </div>
+</section>
+<section class="top-rated">
+  <h2>Top rated</h2>
+  <ol class="top-list" id="topRated"></ol>
+</section>
+    <!-- Links to About and Contact -->
+    <section class="teasers">
+      <a class="teaser" href="about.html">
+        <h2>About the platform</h2>
+        <p>Learn more about our mission to organize regional dining directories and streamline management workflows.</p>
+        <span class="teaser-link">Learn more &rarr;</span>
+      </a>
+      <a class="teaser" href="contact.html">
+        <h2>Customer support</h2>
+        <p>Need help with your business listing or want to get in touch with our operations team? Send us a message.</p>
+        <span class="teaser-link">Contact support &rarr;</span>
+      </a>
+    </section>
+  </main>
+
+  <footer class="site-footer">&copy; 2026 Kainventory &middot; Restaurant Management &amp; Directory Platform</footer>
+  <script src="js/cuisine-flags.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
